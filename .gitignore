@@ -33,3 +33,7 @@ Thumbs.db
 # R&D or Misc Files #
 #####################
 invoke-lambda.html
+express-https.js
+json-parser.js
+applexusLabsAuth-prod-swagger-integrations,authorizers,documentation.json
+HTR-dev-swagger-integrations,authorizers,documentation.json
