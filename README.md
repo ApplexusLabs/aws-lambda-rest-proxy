@@ -24,4 +24,4 @@ For mission critical apps, I would suggest creating an autoscale group minimum o
 
 I would also recommend giving the EC2 instance an IAM role rather than hardcoding IAM Keys into the config file.
 
-![/img/LambdaProxy.png]
+![LambdaProxy.png](/img/LambdaProxy.png)
