@@ -1,7 +1,7 @@
 # aws-lambda-rest-proxy
 A REST proxy for Lambda - work in progress
 
-The purpose of this project is to create a simply proxy for invoking Lambda routines via REST without using API Gateway.  Presently, API Gateway does not provide VPC endpoints and you must expose the API Gateway to the raw internet.  For some scenarios, this is not desired--such as when someone wants to invoke their Lambda routines via REST completely within the protection of a VPC.
+The purpose of this project is to create a simple proxy for invoking Lambda routines via REST without using API Gateway.  Presently, API Gateway does not provide VPC endpoints and you must expose the API Gateway to the raw internet.  For some scenarios, this is not desired--such as when someone wants to invoke their Lambda routines via REST completely within the protection of a VPC.
 
 VPC endpoints for API Gateway are on the roadmap, but until then, this method might be a viable alternative.
 
@@ -9,9 +9,12 @@ VPC endpoints for API Gateway are on the roadmap, but until then, this method mi
 - Add HTTPS capability with certificates
 - Add ability to use IAM keys
 - Containerize this guy
+- Support YAML Swagger format
 
 ## Configuration
 The file ```config.json``` contains configuration parameters.  For now, you need to have a ```.aws/credentials``` file available.  TODO: Add IAM keys to config file
+
+You also need to download the Swagger config file from the Export tab on the Stages screen in the API Gateway Console.  Be sure to choose the one with API Gateway parts (in JSON format) as that version contains the ARN's for the respective Lambda routines.
 
 ## Usage
 You can run 'invoke-lambda-from-nodejs.js' file using the below command. 
