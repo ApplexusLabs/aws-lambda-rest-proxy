@@ -23,8 +23,12 @@ node invoke-lambda-from-nodejs.js
 ```
 
 ## Example Architecture
-For mission critical apps, I would suggest creating an autoscale group minimum of 2 across AZ's, front-ended by ELB.  These can be very tiny systems like a t2.micro since they aren't really doing much other than calling the Lambda routine directly.  If the payloads are large, then you might want to pay attention to memory utilization.
+For mission critical apps, I would suggest creating an autoscale group minimum of 2 across AZ's, front-ended by ELB.  These can be very tiny systems like a t2.micro since they aren't really doing much other than calling the Lambda routine directly.  If the payloads are large, then you might want to pay attention to memory utilization.  If you use ELB, then you naturally get some nice CloudWatch metrics--no need to build that out on the EC2 systems.  The idea would be to keep those EC2 instances simple and disposable--ideally containerized.
+
+You can terminate HTTPS directly on the ELB and just pass HTTP back to the EC2 servers.  Since you're in a VPC all the NACL's and Security Groups apply, allowing you to whitelist.  If you wanted to get fancy, you could also use WAF and create some quite complex access controls.
 
 I would also recommend giving the EC2 instance an IAM role rather than hardcoding IAM Keys into the config file.
+
+If you just want the whole thing managed for you...use Elastic Beanstalk with the node.js preconfigured image.  Done and done!
 
 ![LambdaProxy.png](/img/LambdaProxy.png)
