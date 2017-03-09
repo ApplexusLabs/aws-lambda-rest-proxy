@@ -1,0 +1,31 @@
+{
+  "name": "aws-lambda-rest-proxy",
+  "version": "1.0.0",
+  "description": "AWS Lambda REST Proxy",
+  "main": "invoke-lambda-from-nodejs.js",
+  "dependencies": {
+    "aws-sdk": "^2.23.0",
+    "body-parser": "^1.17.1",
+    "clear": "0.0.1",
+    "express": "^4.15.2",
+    "swagger-parser": "^3.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node invoke-lambda-from-nodejs.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ApplexusLabs/aws-lambda-rest-proxy.git"
+  },
+  "keywords": [
+    "Lambda",
+    "Proxy"
+  ],
+  "author": "ApplexusLabs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ApplexusLabs/aws-lambda-rest-proxy/issues"
+  },
+  "homepage": "https://github.com/ApplexusLabs/aws-lambda-rest-proxy#readme"
+}
