@@ -6,9 +6,7 @@
   "dependencies": {
     "aws-sdk": "^2.23.0",
     "body-parser": "^1.17.1",
-    "clear": "0.0.1",
-    "express": "^4.15.2",
-    "swagger-parser": "^3.4.1"
+    "express": "^4.15.2"
   },
   "devDependencies": {},
   "scripts": {
