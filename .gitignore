@@ -37,3 +37,4 @@ express-https.js
 json-parser.js
 applexusLabsAuth-prod-swagger-integrations,authorizers,documentation.json
 HTR-dev-swagger-integrations,authorizers,documentation.json
+pletcherHelloWorld-dev.json
