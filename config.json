@@ -1,5 +1,6 @@
 {
     "swaggerFile" : "./pletcherHelloWorld-dev.json",
+    "region":"us-east-1",
     "https":"false",
     "key": "",
     "cert": "",

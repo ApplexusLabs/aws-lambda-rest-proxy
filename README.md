@@ -3,13 +3,13 @@ A REST proxy for Lambda - work in progress
 
 ##To Do
 - Add HTTPS capability with certificates
-- Add CORS capabilities
+- Add ability to use IAM keys 
+
+## Configuration
+The file ```config.json``` contains configuration parameters.  For now, you need to have a ```.aws/credentials``` file available.  TODO: Add IAM keys to config file
 
 ## Usage
-You can run 'invoke-lambda-from-nodejs.js' file using the below command. It takes an optional command line argument -f <the swagger API definition JSON file>. 
+You can run 'invoke-lambda-from-nodejs.js' file using the below command. 
 ```
 node invoke-lambda-from-nodejs.js
-```
-```
-node invoke-lambda-from-nodejs.js -f './swagger-export-filename.json'
 ```
