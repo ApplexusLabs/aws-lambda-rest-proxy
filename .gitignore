@@ -1,7 +1,7 @@
 # Node modules #
 ################
-node_modules/*.*
-ssl/*.*
+node_modules/*
+ssl/*
 
 # Packages #
 ############
