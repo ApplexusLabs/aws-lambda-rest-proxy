@@ -4,25 +4,41 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var AWS = require('aws-sdk');
+var fs = require('fs');
+var config = require('./config.json');
+var startServer = require('./startServer');
+
 var lambda = new AWS.Lambda({region: 'us-east-1', apiVersion: '2015-03-31'});
-var swaggerAPIGateway;
+
+
+//load up swagger file
+var swaggerAPIGateway = JSON.parse(fs.readFileSync(config.swaggerFile));
 
 // Clear screen
 process.stdout.write('\033c');
 
 //Check if we have a command line argument and load the corresponding swagger JSON file
-if(process.argv[2] === '-f') {
-	console.log('Reading configuration file \n\t' + process.argv[3]);
-	swaggerAPIGateway = require(process.argv[3]);
-}
-else {
-	console.log('Reading DEFAULT configuration file');
-	swaggerAPIGateway = require('./applexusLabsAuth-prod-swagger-integrations,authorizers,documentation.json');
-}
+// if(process.argv[2] === '-f') {
+// 	console.log('Reading configuration file \n\t' + process.argv[3]);
+// 	swaggerAPIGateway = require(process.argv[3]);
+// }
+// else {
+// 	console.log('Reading DEFAULT configuration file');
+// 	swaggerAPIGateway = require('./applexusLabsAuth-prod-swagger-integrations,authorizers,documentation.json');
+// }
+
 
 // Instantiate express web server
 var app = express();
-app.use(bodyParser.json());
+if (config.cors == true) {
+		var cors = require('cors');
+	app.use(cors());
+	console.log('CORS enabled');
+
+} else {
+	app.use(bodyParser.json());
+}
+
 
 // Helper function - Generic error handler used by all endpoints.
 function HandleError(res, reason, message, code) {
@@ -122,10 +138,11 @@ for (var key in swaggerAPIGateway.paths) {
 }
 
 // Start the web server on a port
-var server = app.listen(8081, function () {
 
+var server = startServer.create(config ,app , function(){
 	var host = 'localhost'; //server.address().address
 	var port = server.address().port
 
 	console.log('\nWebserver listening at http://%s:%s', host, port)
-});
+})
+

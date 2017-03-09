@@ -1,0 +1,8 @@
+{
+    "swaggerFile" : "./pletcherHelloWorld-dev.json",
+    "https":"false",
+    "key": "",
+    "cert": "",
+    "cors":"true",
+    "port":"8888"
+}
